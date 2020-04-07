@@ -7,6 +7,17 @@ The objective for the team was to use my work to take actions in order to try to
 Churn here is defined as 'early churn' meaning new users that are leaving the app very quickly.
 My final objective is to predict the users that are not going to show up in week 2 according to their inapp experience during the 5 first days. 
 
+## Files description
+This repository is composed of the following folders :
+* 2_Visualization composed of :
+ * visualization.ipynb : jupyter notebook including the code for the visualization part of the project
+ * some png images that are presented below in this README
+* 3_Models composed of  :
+ * men_churn_model.ipynb and women_churn_model.ipynb : the jupyter notebook including the code for the modeling part of the project
+ * some png images that are presented below in this README
+* 4_Models_operation composed of the python script (Churn_prediction_script.py) that will be used in order to apply the models to the new data
+* churn_predicion_presentation : a pdf presentation that summarizes the project and gives a more complete view of the process I followed.
+
 ## Data collection
 The data collected by the app (client and server) is stored on a AWS Redshift that is connected to Looker (BI Platform).
 I have been granted an access to Looker where I could run some sql queries on the various tables of the app's database.
@@ -74,7 +85,61 @@ It has highlighted some key information that affected my methodology for this pr
  * lots of features are free for women while men have to spend virtual currency for using them
  * the number of daily matches is not the same for men and women
  
- * As a consequence I have decided to build 2 DIFFERENT MODELS in order to predict the churn of men and women *
+ **As a consequence I have decided to build 2 DIFFERENT MODELS in order to predict the churn of men and women**
+ 
+ ## Data processing
+ 
+ In order to apply predictive model I modified the data collected to make it more usable. 
+ The main modifications performed are :
+ * Transformation of categorical data into dummies
+ * Winsorize of the ratings and chat requests columns in order to remove outliers
+ * Standardization of numerical columns
+ 
+ ## Models 
+ 
+ Below are the various process steps conducted for both men and women
+ ![picture alt](https://github.com/vibiii/dating_app_churn_prediction/blob/master/3_Models/Process_steps.JPG)
+ 
+ 
+ In order to easily run the various models, I created a function that :
+ * takes as input :
+  * the model
+  * the training and testing set
+ * prints :
+  * the model clasification report 
+  * the following scores : accuracy, precision, recall
+  * the confusion matrix
+  * the roc curve
+  * the features importance for the models that have it
+ ![picture alt](https://github.com/vibiii/dating_app_churn_prediction/blob/master/3_Models/Model_func.JPG)
+ 
+ Below is the result of the function for the logistic regression 
+  ![picture alt](https://github.com/vibiii/dating_app_churn_prediction/blob/master/3_Models/Logit.JPG)
+  
+ Since I want to minimize the false negative, the performance of the model was assessed based on the recall score (as close as possible to 100%) without precision being too bad.
+ 
+ After determining the 2 best models for each genre:
+ * I tunned their hyper parameters to improve them again
+ * Ensemble them into 2 final models (men / women)
+ * Pickled the final models in order to be able to re_use them
+ 
+ The result of the final models are :
+ * Men :
+  * Precision : 82%
+  * False negative rate : 21%
+ * Women :
+  * Precision : 83%
+  * False negative rate : 21%
+ 
+ ## Deliverable to the client
+ 
+ I provided my client with the following files in order for him to use my model on a daily basis :
+ * The sql queries that will allow to collect the data requested by the model (they are much lighter than the initial queries because thanks to the feature engineering I have reduced the number of variables needed)
+ * A python script (Churn_prediction_script.py located in 4_Models_operation) that will :
+  * collect all the csv files located in the same folder (this way it requires less processing from the client, he only has to save the csv files resulting from the queries in the same folder as the python script without having to modify any path in the script)
+  * apply the models to the data provided by the csv files
+  * export a csv file (in the same folder), containing the list of the users that are considered as liable to churn.
+ 
  
 
 
