@@ -10,9 +10,9 @@ I have been granted an access to Looker where I could run some sql queries on th
 Below is the process followed in order to collect the data ncessary for the project :
 * Client : discussion in order to have a clear understanding of the app mechanisms and a first vision of the data that might be useful for the purpose of the project
 * Looker : 
-** investigation of the differents tables (around 40) in order to localize the data that need to be collected
-** retrieving of the data thanks to sql queries
-** saving of the data into csv files
+  * investigation of the differents tables (around 40) in order to localize the data that need to be collected
+  * retrieving of the data thanks to sql queries
+  * saving of the data into csv files
 * Python : data cleaning, exploration and usage
 
 
