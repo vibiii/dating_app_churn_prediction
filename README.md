@@ -139,7 +139,17 @@ It has highlighted some key information that affected my methodology for this pr
   * collect all the csv files located in the same folder (this way it requires less processing from the client, he only has to save the csv files resulting from the queries in the same folder as the python script without having to modify any path in the script)
   * apply the models to the data provided by the csv files
   * export a csv file (in the same folder), containing the list of the users that are considered as liable to churn.
- 
+  
+## Built with
+
+* Python - The programming language used
+* Pandas - library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language
+* MySQL - MySQL is an open-source relational database management system for SQL
+* Looker - Popular Data visualization tool
+* MatPlotLib - Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms
+* Seaborn - Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics
+* Scikit-learn - Scikit-learn is a machine learning library for Python
+
  
 
 
