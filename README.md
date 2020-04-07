@@ -74,7 +74,7 @@ It has highlighted some key information that affected my methodology for this pr
  * lots of features are free for women while men have to spend virtual currency for using them
  * the number of daily matches is not the same for men and women
  
- *As a consequence I have decided to build 2 DIFFERENT MODELS in order to predict the churn of men and women*
+ * As a consequence I have decided to build 2 DIFFERENT MODELS in order to predict the churn of men and women *
  
 
 
