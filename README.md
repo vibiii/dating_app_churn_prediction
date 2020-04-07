@@ -54,7 +54,28 @@ I removed from the data the users that have been detected as fraud by the team (
 
 ## Exploration and visualization
 
-
+The data exploration and visualization has been done using the matplotlib and seaborn librairies.
+It has highlighted some key information that affected my methodology for this project :
+* the gender repartition of the user base is imbalanced : fewer women are installing the app and they tend to churn more easiy than men 
+![picture alt](https://github.com/vibiii/dating_app_churn_prediction/blob/master/2_Visualization/01_Gender_repartition.png)
+![picture alt](https://github.com/vibiii/dating_app_churn_prediction/blob/master/2_Visualization/05_Gender_proba_stay.png)
+* some user behaviour tend to clearly hae an impact on the churn of users mainly :
+ * the fact that the users got a connection in the first days
+![picture alt](https://github.com/vibiii/dating_app_churn_prediction/blob/master/2_Visualization/Connection_churn_men.png)
+![picture alt](https://github.com/vibiii/dating_app_churn_prediction/blob/master/2_Visualization/Connection_churn_women.png)
+ * the number of logins during the first days
+ * the spending behaviour
+ * the virtual currency spending behaviour
+ 
+ All the visualization are available in the pdf file 'churn_predicion_presentation'
+ 
+ Due to the fact that the genre repartition of the user base is imbalanced, the 'rules' applied by the app to both genders are not the same.
+ For example :
+ * lots of features are free for women while men have to spend virtual currency for using them
+ * the number of daily matches is not the same for men and women
+ 
+ *As a consequence I have decided to build 2 DIFFERENT MODELS in order to predict the churn of men and women*
+ 
 
 
 
